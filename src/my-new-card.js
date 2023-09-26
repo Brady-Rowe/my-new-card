@@ -57,55 +57,80 @@ class MyNewCard extends LitElement {
 
   render() {
     return html`
-    <button id="btn">Clone</button>
-    <button id="colorBtn">Change Color</button>
-    <button id="titleBtn">Change Title</button>
-    <button id="deleteBtn">Delete Card</button>
+     <button id="btn">Clone</button>
+  <button id="colorBtn">Change Color</button>
+  <button id="titleBtn">Change Title</button>
+  <button id="deleteBtn">Delete Card</button>
 
-    <div class="cards">
+
+<div class="cards">
     <div class="card-container">
-     <div class="card-content">
-       <h2>PSU College of IST </h2>
-       <p>the College of IST</p>
-       <style>
-         .hidden {
-             display: none;
-         }
-         .cards {
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: space-evenly;
-         }
-         .card-container {
-             background-color: #808080;
-             width: 100%;
-             margin: 8px;
-             padding: 15px;
-             border-radius: 10px;
-         }
-         .card-content {
-           text-align: center;
-           color: white;
-           display: block;
-           flex-direction: column;
-           align-content: center;
-           font-family: "Comic Sans MS"
-         }
-         .card-content img {
-             max-width: 100%;
-             border-radius: 10px;
-         }              
-     </style>
-       <img src="https://sites.psu.edu/istclub/wp-content/uploads/sites/12209/2014/08/cropped-IST.jpg" alt="Card Image" width="200" height="150">
-       
-       
-        <a href="https://hax.psu.edu" class="details-button"> <button> Details</button></a>
-         
+      <div class="card-content">
+        <h2 id="cardTitle">Penn State College of IST</h2>
+        <p>the College of IST</p>
+        <img src="https://sites.psu.edu/istclub/wp-content/uploads/sites/12209/2014/08/cropped-IST.jpg" alt="Card Image">
+        <div>
+            <style>
+        .hidden {
+            display: none;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .card-content {
+          text-align: center;
+          color: white;
+          display: block;
+         flex-direction: column;
+         align-content: center;
+        font-family: "Comic Sans MS"
+        }
+        .card-container {
+            background-color: #808080;
+            width: 45%;
+            margin: 8px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .card-content img {
+            max-width: 100%;
+            border-radius: 10px;
+        } 
+        #cDescription {
+    color: white;
+    font-family: "Comic Sans MS"
+    
+  }
+
+  #details-button {
+    display: flex;
+    background-color: white;
+    color: #808080;
+    width: 40%;
+    align-items: center; 
+    justify-content: center;
+    margin-left: 100px;
+    margin-top: 100px;
+    font-family: "Comic Sans MS";    
+  }         
+    </style>
+ </head>            
       
-     </div>
+        </div>
+      </div>
+      <details>
+        
+      <summary id = "details-button" > Click for Details </summary>
+      <p id = "cDescription" >Penn State's College of Information Sciences and Technology offers a small school community with the resources of a world-class university.</p>
+
+      </details>
+    
     </div>
-   </div>
-   <script>
+  </div>
+
+<script>
     //Defining some variables
     const button = document.querySelector("#btn");
     const colorButton = document.querySelector("#colorBtn");
