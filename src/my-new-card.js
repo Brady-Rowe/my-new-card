@@ -62,23 +62,65 @@ class MyNewCard extends LitElement {
   }
 
   firstUpdated() {
-    const colorBtn = this.shadowRoot.querySelector("#colorBtn");
-    const titleBtn = this.shadowRoot.querySelector("#titleBtn");
-    const deleteBtn = this.shadowRoot.querySelector("#deleteBtn");
+    const colorBtn = this.shadowRoot.querySelector('#colorBtn');
+    const titleBtn = this.shadowRoot.querySelector('#titleBtn');
+    const deleteBtn = this.shadowRoot.querySelector('#deleteBtn');
+    const cardTitle = this.shadowRoot.querySelector('#cardTitle');
+    const cardDescription = this.shadowRoot.querySelector('#cDescription');
+    const toggleDescription = this.shadowRoot.querySelector('#details-button')
+    const btn = this.shadowRoot.querySelector('#btn');
+    const card = this.shadowRoot.querySelector('.card-container');
+    const clone = card.cloneNode(true);
+    const cards = this.shadowRoot.querySelector('.cards');
+    const details = this.shadowRoot.querySelector('details');
+    const summary = this.shadowRoot.querySelector('summary');
+    const cardContent = this.shadowRoot.querySelector('.card-content');
+    const cardImage = this.shadowRoot.querySelector('img');
+    const cardContainer = this.shadowRoot.querySelector('.card-container');
+    const cardClone = this.shadowRoot.querySelector('.card-container');
+    const cardClone2 = this.shadowRoot.querySelector('.card-container');
 
+    
+
+    titleBtn.addEventListener('click', () => {
+      cardTitle.innerHTML = 'The Nitany Lions?';
+    });
+    deleteBtn.addEventListener('click', () => {
+      cards.removeChild(cardClone2);
+    });
+    toggleDescription.addEventListener('click', () => {
+      cardDescription.classList.toggle('hidden');
+    });
+    btn.addEventListener('click', () => {
+      cards.appendChild(clone);
+    });
+    cardContent.addEventListener('click', () => {
+      cardImage.classList.toggle('hidden');
+    });
+    summary.addEventListener('click', () => {
+      cardDescription.classList.toggle('hidden');
+    });
+
+  }
+
+  randomColorGenerator() {
+    const cardContainer = this.shadowRoot.querySelector('.card-container');
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    cardContainer.style.backgroundColor = '#' + randomColor;
+    return randomColor;
   }
 
   cloneCard(e) {
     const card = this.shadowRoot.querySelector('.card-container');
     const clone = card.cloneNode(true);
-    this.shadowRoot.appendChild(clone);
+    this.shadowRoot.querySelector('.cards').appendChild(clone);
   }
-  
+    
 
   render() {
     return html`
   <button id="btn" @click="${this.cloneCard}">Clone</button>
-  <button id="colorBtn">Change Color</button>
+  <button id="colorBtn" @click="${this.randomColorGenerator}">Change Color</button>
   <button id="titleBtn">Change Title</button>
   <button id="deleteBtn">Delete Card</button>
 <div class="cards">
