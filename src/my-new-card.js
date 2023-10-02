@@ -19,35 +19,39 @@ class MyNewCard extends LitElement {
           display: block;
          flex-direction: column;
          align-content: center;
-        font-family: "Comic Sans MS"
+        font-family: "Optima"
         }
         .card-container {
             background-color: #808080;
             width: 45%;
-            margin: 8px;
+            margin: 50px;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 15px;
         }
         .card-content img {
             max-width: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
         } 
         #cDescription {
     color: white;
-    font-family: "Comic Sans MS"
+    font-size: 18px; 
+    font-family: "Optima"
     
   }
 
   #details-button {
     display: flex;
-    background-color: white;
-    color: #808080;
-    width: 40%;
-    align-items: center; 
+    border-radius: 4px ;
+    background-color: whitesmoke;
+    color: black;
+    height: 22px ;
+    width: 30%; 
+    align-content: center; 
     justify-content: center;
-    margin-left: 100px;
-    margin-top: 100px;
-    font-family: "Comic Sans MS";    
+    margin-left: 25px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-family: "Optima";   
   }
 
   `;
@@ -61,7 +65,7 @@ class MyNewCard extends LitElement {
     const colorBtn = this.shadowRoot.querySelector("#colorBtn");
     const titleBtn = this.shadowRoot.querySelector("#titleBtn");
     const deleteBtn = this.shadowRoot.querySelector("#deleteBtn");
-    
+
   }
 
   cloneCard(e) {
