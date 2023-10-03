@@ -91,9 +91,7 @@ class MyNewCard extends LitElement {
     toggleDescription.addEventListener('click', () => {
       cardDescription.classList.toggle('hidden');
     });
-    btn.addEventListener('click', () => {
-      cards.appendChild(clone);
-    });
+    
     cardContent.addEventListener('click', () => {
       cardImage.classList.toggle('hidden');
     });
@@ -102,6 +100,16 @@ class MyNewCard extends LitElement {
     });
 
   }
+
+  deleteCard () {
+    const cardzz = this.shadowRoot.querySelectorAll('.card-container');
+    if(cards.length > 1) {
+      const lastcardz = cardzz[cardzz.length - 1];
+      lastcardz.parentNode.removeChild(lastcardz);
+    }
+
+  }
+
 
   randomColorGenerator() {
     const cardContainer = this.shadowRoot.querySelector('.card-container');
