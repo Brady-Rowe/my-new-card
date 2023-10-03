@@ -82,12 +82,8 @@ class MyNewCard extends LitElement {
 
     
 
-    titleBtn.addEventListener('click', () => {
-      cardTitle.innerHTML = 'The Nitany Lions?';
-    });
-    deleteBtn.addEventListener('click', () => {
-      cards.removeChild(cardClone2);
-    });
+    
+    
     toggleDescription.addEventListener('click', () => {
       cardDescription.classList.toggle('hidden');
     });
@@ -101,13 +97,24 @@ class MyNewCard extends LitElement {
 
   }
 
-  deleteCard () {
-    const cardzz = this.shadowRoot.querySelectorAll('.card-container');
-    if(cards.length > 1) {
-      const lastcardz = cardzz[cardzz.length - 1];
-      lastcardz.parentNode.removeChild(lastcardz);
-    }
+  changeTitle() {
+    const cardTitle = this.shadowRoot.querySelector('#cardTitle');
 
+    if(cardTitle.innerText == 'The Nitany Lions?') 
+    {
+      cardTitle.innerText == 'Penn State College of IST';
+    }
+    else {
+      cardTitle.innerHTML = 'The Nitany Lions?';
+    }
+  }
+
+  deleteCard () {
+    const cards = this.shadowRoot.querySelector('.cards');
+    const cardCount = cards.children.length;
+    if(cardCount > 1) {
+      cards.removeChild(cards.lastChild);
+    }
   }
 
 
@@ -129,8 +136,8 @@ class MyNewCard extends LitElement {
     return html`
   <button id="btn" @click="${this.cloneCard}">Clone</button>
   <button id="colorBtn" @click="${this.randomColorGenerator}">Change Color</button>
-  <button id="titleBtn">Change Title</button>
-  <button id="deleteBtn">Delete Card</button>
+  <button id="titleBtn" @click="${this.changeTitle}">Change Title</button>
+  <button id="deleteBtn" @click="${this.deleteCard}">Delete Card</button>
 <div class="cards">
     <div class="card-container">
       <div class="card-content">
