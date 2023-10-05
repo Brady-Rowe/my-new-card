@@ -4,7 +4,12 @@ const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class MyNewCard extends LitElement {
   static properties = {
-    header: { type: String },
+    image: {type : String},
+    alt:{type : String},
+    title: {type : String},
+    titleTwo : {type : String},
+    description: {type : String},
+    detailsBtnText : {type : String},
   }
 
   static styles = css`
@@ -58,7 +63,12 @@ class MyNewCard extends LitElement {
 
   constructor() {
     super();
-    this.header = 'My app';
+    this.image = 'https://sites.psu.edu/istclub/wp-content/uploads/sites/12209/2014/08/cropped-IST.jpg';
+    this.alt = 'Card Image';
+    this.title = 'Penn State College of IST';
+    this.titleTwo = 'the College of IST';
+    this.description = 'Penn States College of Information Sciences and Technology offers a small school community with the resources of a world-class university.';
+    this.detailsBtnText = 'Click for Details';
   }
 
   firstUpdated() {
@@ -138,22 +148,22 @@ class MyNewCard extends LitElement {
   <button id="colorBtn" @click="${this.randomColorGenerator}">Change Color</button>
   <button id="titleBtn" @click="${this.changeTitle}">Change Title</button>
   <button id="deleteBtn" @click="${this.deleteCard}">Delete Card</button>
-<div class="cards">
-    <div class="card-container">
-      <div class="card-content">
-        <h2 id="cardTitle">Penn State College of IST</h2>
-        <p>the College of IST</p>
-        <img src="https://sites.psu.edu/istclub/wp-content/uploads/sites/12209/2014/08/cropped-IST.jpg" alt="Card Image">
-      </div>
-      <details>
-        
-      <summary id = "details-button" > Click for Details </summary>
-      <p id = "cDescription" >Penn State's College of Information Sciences and Technology offers a small school community with the resources of a world-class university.</p>
+  <div class="cards">
+      <div class="card-container">
+        <div class="card-content">
+          <h2 id="cardTitle">${this.title}</h2>
+          <p>${this.titleTwo}</p>
+          <img src= ${this.image} alt= ${this.alt}>
+        </div>
+        <details>
+          
+        <summary id = "details-button" > ${this.detailsBtnText} </summary>
+        <p id = "cDescription" >${this.description}</p>
 
-      </details>
-    
+        </details>
+      
+      </div>
     </div>
-  </div>
     `;
   }
 }
