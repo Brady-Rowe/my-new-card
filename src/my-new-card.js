@@ -158,10 +158,10 @@ class MyNewCard extends LitElement {
         <details>
           
         <summary id = "details-button" > ${this.detailsBtnText} </summary>
-        <p id = "cDescription" >${this.description}</p>
+        <p id = "cDescription"><slot></slot>${this.description}</p>
 
         </details>
-      
+        
       </div>
     </div>
     `;
